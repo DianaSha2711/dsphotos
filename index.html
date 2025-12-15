@@ -67,7 +67,7 @@
             <div class="gallery-grid">
                 <!-- Первый ряд -->
                 <!-- Фото 1 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/ff45543e-9503-4b89-9ccb-a55e0e7329ef.jfif" data-alt="Фотография 1">
                     <img src="img/ff45543e-9503-4b89-9ccb-a55e0e7329ef.jfif" alt="Фотография 1" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -76,7 +76,7 @@
                 </div>
                 
                 <!-- Фото 2 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/photo_2025-10-26_10-50-12.jpg" data-alt="Фотография 2">
                     <img src="img/photo_2025-10-26_10-50-12.jpg" alt="Фотография 2" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -85,7 +85,7 @@
                 </div>
                 
                 <!-- Фото 3 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/photo_2025-10-26_10-50-13.jpg" data-alt="Фотография 3">
                     <img src="img/photo_2025-10-26_10-50-13.jpg" alt="Фотография 3" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -95,7 +95,7 @@
                 
                 <!-- Второй ряд -->
                 <!-- Фото 4 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/photo_2025-10-26_18-22-26.jpg" data-alt="Фотография 4">
                     <img src="img/photo_2025-10-26_18-22-26.jpg" alt="Фотография 4" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -104,7 +104,7 @@
                 </div>
                 
                 <!-- Фото 5 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/photo_2025-11-04_14-13-23.jpg" data-alt="Фотография 5">
                     <img src="img/photo_2025-11-04_14-13-23.jpg" alt="Фотография 5" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -113,7 +113,7 @@
                 </div>
                 
                 <!-- Фото 6 -->
-                <div class="gallery-item">
+                <div class="gallery-item" data-image="img/photo_2025-11-04_14-19-33.jpg" data-alt="Фотография 6">
                     <img src="img/photo_2025-11-04_14-19-33.jpg" alt="Фотография 6" class="gallery-image" 
                          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
                     <div class="zoom-overlay">
@@ -144,6 +144,17 @@
         </footer>
     </div>
 
+    <!-- Модальное окно для полноразмерного просмотра -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="image-counter" id="imageCounter"></div>
+            <button class="modal-nav modal-prev" id="prevButton">❮</button>
+            <button class="modal-nav modal-next" id="nextButton">❯</button>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Анимация градиента логотипа
@@ -152,7 +163,7 @@
             
             setInterval(() => {
                 gradientAngle = (gradientAngle + 0.5) % 360;
-                logo.style.background = `linear-gradient(${gradientAngle}deg, #800000 0%, #4a0000 100%)`;
+                logo.style.background = `linear-gradient(${gradientAngle}deg, #ff0000 0%, #cc0000 25%, #990000 50%, #660000 75%, #330000 100%)`;
                 logo.style.webkitBackgroundClip = 'text';
                 logo.style.backgroundClip = 'text';
             }, 50);
@@ -185,6 +196,15 @@
                         this.appendChild(img);
                         this.classList.add('fallback');
                     }
+                });
+                
+                // Открытие полноразмерного просмотра при клике
+                item.addEventListener('click', function() {
+                    const imageSrc = this.getAttribute('data-image');
+                    const imageAlt = this.getAttribute('data-alt');
+                    const currentIndex = Array.from(galleryItems).indexOf(this);
+                    
+                    openModal(imageSrc, imageAlt, currentIndex);
                 });
             });
             
@@ -220,7 +240,6 @@
                 fairyTale.style.transform = `translateY(${Math.sin(Date.now()/1000)*3}px)`;
             }, 100);
             
-            
             // Создаем дополнительные кровавые капли
             document.addEventListener('click', function(e) {
                 if (Math.random() > 0.5) {
@@ -236,6 +255,110 @@
                         drip.remove();
                     }, 8000);
                 }
+            });
+            
+            // Функционал модального окна для полноразмерного просмотра
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const closeModal = document.getElementById('closeModal');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            let currentImageIndex = 0;
+            const images = Array.from(galleryItems).map(item => ({
+                src: item.getAttribute('data-image'),
+                alt: item.getAttribute('data-alt')
+            }));
+            
+            // Открытие модального окна
+            function openModal(src, alt, index) {
+                currentImageIndex = index;
+                updateModal();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+            }
+            
+            // Обновление содержимого модального окна
+            function updateModal() {
+                const currentImage = images[currentImageIndex];
+                modalImage.src = currentImage.src;
+                modalImage.alt = currentImage.alt;
+                imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            }
+            
+            // Закрытие модального окна
+            function closeModalFunc() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Возвращаем скролл
+            }
+            
+            // Навигация по фотографиям
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateModal();
+            }
+            
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateModal();
+            }
+            
+            // События для модального окна
+            closeModal.addEventListener('click', closeModalFunc);
+            prevButton.addEventListener('click', showPrevImage);
+            nextButton.addEventListener('click', showNextImage);
+            
+            // Закрытие по клику на оверлей
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalFunc();
+                }
+            });
+            
+            // Навигация с клавиатуры
+            document.addEventListener('keydown', function(e) {
+                if (modal.classList.contains('active')) {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeModalFunc();
+                            break;
+                        case 'ArrowRight':
+                            showNextImage();
+                            break;
+                        case 'ArrowLeft':
+                            showPrevImage();
+                            break;
+                    }
+                }
+            });
+            
+            // Предзагрузка следующих и предыдущих изображений
+            function preloadImages() {
+                const preloadNext = (currentImageIndex + 1) % images.length;
+                const preloadPrev = (currentImageIndex - 1 + images.length) % images.length;
+                
+                const imgNext = new Image();
+                imgNext.src = images[preloadNext].src;
+                
+                const imgPrev = new Image();
+                imgPrev.src = images[preloadPrev].src;
+            }
+            
+            // Предзагрузка при открытии модального окна
+            modal.addEventListener('transitionend', function() {
+                if (modal.classList.contains('active')) {
+                    preloadImages();
+                }
+            });
+            
+            // Плавная смена изображений
+            modalImage.addEventListener('load', function() {
+                this.style.opacity = '0';
+                setTimeout(() => {
+                    this.style.transition = 'opacity 0.3s ease';
+                    this.style.opacity = '1';
+                }, 10);
             });
         });
     </script>
