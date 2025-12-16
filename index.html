@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D|S Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Хэдер с логотипом и социальными иконками -->
+    <div class="header-container">
+        <!-- Логотип в левом верхнем углу с подписью -->
+        <div class="logo-container-small">
+            <div class="logo-bright">DS</div>
+            <div class="logo-photographer">photographer</div>
+        </div>
+        
+        <!-- Социальные иконки в правом верхнем углу -->
+        <div class="social-header">
+            <div class="social-icons">
+                <a href="https://vk.com/dbravo777" target="_blank" class="social-icon" title="VK">VK</a>
+                <a href="https://www.instagram.com/d_bravo888?igsh=dGo4bXZyMGY0dzA3&utm_source=qr" target="_blank" class="social-icon" title="Instagram">IG</a>
+                <a href="https://t.me/dianabravo777" target="_blank" class="social-icon" title="Telegram">TG</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Пустое пространство для расстояния -->
+    <div class="header-spacing"></div>
+    
+    <!-- Кровавые капли -->
+    <div class="blood-drip-top">
+        <div class="drip"></div>
+        <div class="drip"></div>
+        <div class="drip"></div>
+        <div class="drip"></div>
+        <div class="drip"></div>
+    </div>
+    
+    <!-- Кровавые пятна в углах -->
+    <div class="blood-corner corner-tl"></div>
+    <div class="blood-corner corner-tr"></div>
+    <div class="blood-corner corner-bl"></div>
+    <div class="blood-corner corner-br"></div>
+    
+    <!-- Основной логотип скрыт, так как у нас теперь маленький логотип в хэдере -->
+    <div class="logo-container" style="display: none;">
+        <div class="logo">D|S</div>
+    </div>
+    
+    <div class="container">
+        <!-- Блок "О себе" (без фотографии) -->
+        <section id="about">
+            <h2>О себе</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="greeting">Привет! Я Диана.</div>
+                    
+                    <div class="about-paragraph">
+                        Я люблю сказки и сама их снимать.
+                    </div>
+                    
+                    <div class="motto">
+                        Мой девиз - <em>It's bigger on the inside</em>.
+                    </div>
+                    
+                    <div class="quote">
+                        По-этому Ваш внутренний мир - моё вдохновение и самые необычные Ваши идеи находят отклик в моих съёмках.
+                    </div>
+                    
+                    <div class="collaboration">
+                        Рассматриваю предложения о сотрудничестве в Санкт-Петербурге и Москве.
+                    </div>
+                    
+                    <div class="directions-title">
+                        С радостью приму участие в таких направлениях, как:
+                    </div>
+                    
+                    <div class="directions-list">
+                        <div class="direction-item">индивидуальные проекты</div>
+                        <div class="direction-item">пары</div>
+                        <div class="direction-item">светская хроника</div>
+                        <div class="direction-item">фуд-фото</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Разделительная линия между блоками -->
+        <div class="section-divider"></div>
+        
+        <!-- Серии (бывшая Галерея) -->
+        <section id="gallery">
+            <h2>Серии</h2>
+            <p style="color: rgba(0, 0, 0, 0.7); margin-bottom: 20px; font-weight: 300;">Визуальные сказки, созданные с вдохновением от вашей энергии. Каждая фотография — отдельная история, наполненная атмосферой и эмоциями.</p>
+            
+            <div class="gallery-grid">
+                <!-- Первый ряд -->
+                <!-- Фото 1 -->
+                <div class="gallery-item" data-image="img/ff45543e-9503-4b89-9ccb-a55e0e7329ef.jfif" data-alt="Фотография 1">
+                    <img src="img/ff45543e-9503-4b89-9ccb-a55e0e7329ef.jfif" alt="Фотография 1" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Фото 2 -->
+                <div class="gallery-item" data-image="img/photo_2025-10-26_10-50-12.jpg" data-alt="Фотография 2">
+                    <img src="img/photo_2025-10-26_10-50-12.jpg" alt="Фотография 2" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Фото 3 -->
+                <div class="gallery-item" data-image="img/photo_2025-10-26_10-50-13.jpg" data-alt="Фотография 3">
+                    <img src="img/photo_2025-10-26_10-50-13.jpg" alt="Фотография 3" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Второй ряд -->
+                <!-- Фото 4 -->
+                <div class="gallery-item" data-image="img/photo_2025-10-26_18-22-26.jpg" data-alt="Фотография 4">
+                    <img src="img/photo_2025-10-26_18-22-26.jpg" alt="Фотография 4" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Фото 5 -->
+                <div class="gallery-item" data-image="img/photo_2025-11-04_14-13-23.jpg" data-alt="Фотография 5">
+                    <img src="img/photo_2025-11-04_14-13-23.jpg" alt="Фотография 5" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Фото 6 -->
+                <div class="gallery-item" data-image="img/photo_2025-11-04_14-19-33.jpg" data-alt="Фотография 6">
+                    <img src="img/photo_2025-11-04_14-19-33.jpg" alt="Фотография 6" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+     
+        <!-- Длинная черная линия через весь экран -->
+        <div class="full-line-divider"></div>
+        
+        <!-- Контакты -->
+        <section id="contacts">
+            <div class="contact-info">
+                <div class="contact-name">Диана Браво</div>
+                <div class="contact-phone">+7 981 906-81-28</div>
+                
+                <div class="contact-divider"></div>
+                
+                <div class="contact-social">инстаграм @d_bravo888</div>
+                <div class="contact-social">телеграмм @dianabravo777</div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2023 D|S Portfolio. Создаем современные сказки вместе</p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно для полноразмерного просмотра -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="image-counter" id="imageCounter"></div>
+            <button class="modal-nav modal-prev" id="prevButton">❮</button>
+            <button class="modal-nav modal-next" id="nextButton">❯</button>
+        </div>
+    </div>
+
+   <script type="text/javascript" src="index.js"></script>
+
+   <!-- Инлайн стили для нового хэдера и элементов без изменения основного CSS -->
+   <style>
+        /* Импорт шрифта Snell Roundhand */
+        @import url('https://fonts.cdnfonts.com/css/snell-roundhand');
+        
+        /* Контейнер для хэдера */
+        .header-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px 30px;
+            z-index: 200;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(139, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Контейнер для логотипа */
+        .logo-container-small {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Логотип DS - теперь с тем же шрифтом, что и photographer */
+        .logo-bright {
+            font-family: 'Snell Roundhand', cursive, 'MedievalSharp', cursive;
+            font-size: 1.8rem;
+            font-weight: 400; /* Такая же толщина, как у photographer */
+            color: rgba(128, 0, 0, 0.9); /* Простой красный цвет вместо градиента */
+            letter-spacing: 2px;
+            padding: 6px 12px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 201;
+            font-style: normal; /* Убираем курсив для DS */
+        }
+
+        /* Подпись photographer */
+        .logo-photographer {
+            font-family: 'Snell Roundhand', cursive, 'MedievalSharp', cursive;
+            font-size: 1rem;
+            font-weight: 400;
+            color: rgba(128, 0, 0, 0.8);
+            letter-spacing: 1px;
+            font-style: italic;
+            text-transform: lowercase;
+            padding: 4px 8px;
+            position: relative;
+            z-index: 201;
+        }
+
+        /* Расстояние между хэдером и контентом */
+        .header-spacing {
+            height: 120px;
+            width: 100%;
+        }
+
+        /* Направления без точек */
+        .directions-list {
+            margin: 15px 0 0 0;
+            padding: 0;
+        }
+
+        .direction-item {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 8px;
+            padding: 8px 15px;
+            background-color: rgba(128, 0, 0, 0.05);
+            border-radius: 6px;
+            border: 1px solid rgba(128, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .direction-item:hover {
+            background-color: rgba(128, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Новая иконка увеличения как изображение */
+        .zoom-icon-image {
+            width: 50px;
+            height: 50px;
+            filter: invert(100%) brightness(100%) contrast(100%);
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .gallery-item:hover .zoom-icon-image {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Стили для переопределения существующих стилей zoom-icon */
+        .zoom-icon {
+            display: none !important;
+        }
+
+        /* Адаптивность для нового хэдера */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            .logo-bright {
+                font-size: 1.6rem;
+                padding: 5px 10px;
+                height: 36px;
+            }
+            
+            .logo-photographer {
+                font-size: 0.9rem;
+                padding: 3px 6px;
+            }
+            
+            .header-spacing {
+                height: 100px;
+            }
+            
+            .zoom-icon-image {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo-bright {
+                font-size: 1.4rem;
+                padding: 4px 8px;
+                height: 32px;
+            }
+            
+            .logo-photographer {
+                font-size: 0.8rem;
+                padding: 2px 4px;
+            }
+            
+            .header-spacing {
+                height: 90px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            
+            .logo-container-small {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .social-header {
+                width: 100%;
+            }
+            
+            .social-icons {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .header-spacing {
+                height: 140px;
+            }
+            
+            .zoom-icon-image {
+                width: 35px;
+                height: 35px;
+                padding: 7px;
+            }
+        }
+   </style>
+</body>
+</html>
