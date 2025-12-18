@@ -120,6 +120,49 @@
         <!-- Разделительная линия между блоками -->
         <div class="section-divider"></div>
         
+        <!-- Блок "Студийные фото" -->
+        <section id="studio" class="gallery-section">
+            <h2 class="center-title studio-title">Студийные фото</h2>
+            
+            <div class="gallery-grid">
+                <!-- Студийное фото 1 -->
+                <div class="gallery-item" data-image="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-27%20(2).jpg?raw=true" data-alt="Студийное фото 1">
+                    <img src="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-27%20(2).jpg?raw=true" alt="Студийное фото 1" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Студийное фото 2 -->
+                <div class="gallery-item" data-image="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-27.jpg?raw=true" data-alt="Студийное фото 2">
+                    <img src="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-27.jpg?raw=true" alt="Студийное фото 2" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+                
+                <!-- Студийное фото 3 -->
+                <div class="gallery-item" data-image="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-28.jpg?raw=true" data-alt="Студийное фото 3">
+                    <img src="https://github.com/DianaSha2711/dsphotos/blob/main/img/photo_2025-12-18_09-13-28.jpg?raw=true" alt="Студийное фото 3" class="gallery-image" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1526512340740-9217d0159da9?ixlib=rb-4.0.3&auto=format&fit=crop&h=800&q=80'; this.parentElement.classList.add('fallback')">
+                    <div class="zoom-overlay">
+                        <img src="https://cdn3.iconfinder.com/data/icons/ui-actions-line/16/zoom-in-magnifying_glass-1024.png" 
+                             alt="Увеличить" 
+                             class="zoom-icon-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Разделительная линия между блоками -->
+        <div class="section-divider"></div>
+        
         <!-- Блок "О себе" (без фотографии) -->
         <section id="about">
             <h2>О себе</h2>
@@ -224,9 +267,9 @@
             gap: 5px;
         }
 
-        /* Логотип D|S - большие буквы БЕЗ КУРСИВА */
+        /* Логотип D|S - большие буквы БЕЗ КУРСИВА с тем же шрифтом, что и "Истории" */
         .logo-bright-large {
-            font-family: 'Snell Roundhand', cursive, 'MedievalSharp', cursive;
+            font-family: 'MedievalSharp', cursive, 'Snell Roundhand', cursive;
             font-size: 2.5rem;
             font-weight: 400;
             color: rgba(128, 0, 0, 0.9);
@@ -354,6 +397,52 @@
             transform: translateY(-2px);
         }
 
+        /* Стили для блока "Студийные фото" с полупрозрачной рамкой */
+        .gallery-section {
+            border: 1px solid rgba(139, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.1);
+        }
+
+        /* Центрирование заголовка "Студийные фото" */
+        .center-title {
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        /* Специальный стиль для заголовка "Студийные фото" */
+        .studio-title {
+            font-family: sans-serif; /* Простой прямой шрифт как в абзацах "О себе" */
+            font-weight: 300; /* Тонкий вес */
+            color: rgba(0, 0, 0, 0.9); /* Черный цвет */
+            font-size: 1.6rem; /* Меньший размер шрифта */
+            text-transform: capitalize; /* Только первая буква заглавная */
+            letter-spacing: 1px; /* Обычный межбуквенный интервал */
+        }
+
+        /* Стили для всех остальных заголовков h2 (Истории, О себе) */
+        h2 {
+            font-family: 'MedievalSharp', cursive;
+            font-size: 2.2rem;
+            color: rgba(128, 0, 0, 0.9);
+            text-align: left;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Стили для текста в блоке "О себе" */
+        .about-text > div {
+            font-family: sans-serif; /* Прямой простой шрифт */
+            font-weight: 300; /* Тонкий вес */
+            color: rgba(0, 0, 0, 0.8);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
         /* Адаптивность для нового хэдера */
         @media (max-width: 768px) {
             .header-container {
@@ -387,6 +476,18 @@
                 font-size: 0.85rem;
                 padding: 5px 10px;
             }
+            
+            .center-title, h2 {
+                font-size: 1.8rem;
+            }
+            
+            .studio-title {
+                font-size: 1.4rem;
+            }
+            
+            .gallery-section {
+                padding: 20px;
+            }
         }
 
         @media (max-width: 600px) {
@@ -410,6 +511,18 @@
             .social-icon-footer {
                 font-size: 0.8rem;
                 padding: 4px 8px;
+            }
+            
+            .center-title, h2 {
+                font-size: 1.6rem;
+            }
+            
+            .studio-title {
+                font-size: 1.2rem;
+            }
+            
+            .gallery-section {
+                padding: 15px;
             }
         }
 
@@ -450,6 +563,18 @@
             .social-icon-footer {
                 font-size: 0.75rem;
                 padding: 3px 6px;
+            }
+            
+            .center-title, h2 {
+                font-size: 1.4rem;
+            }
+            
+            .studio-title {
+                font-size: 1.1rem;
+            }
+            
+            .gallery-section {
+                padding: 12px;
             }
         }
    </style>
