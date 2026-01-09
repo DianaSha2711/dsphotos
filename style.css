@@ -294,7 +294,16 @@ body {
     height: 1px;
     background: linear-gradient(to right, #800000, transparent); /* Бордовый */
 }
-
+.direction-item-simple:: before {
+     content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(to right, #800000, transparent); /* Бордовый */
+}
 .about-content {
     font-size: 1.1rem;
     line-height: 1.7;
