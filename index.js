@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const logo = document.querySelector('.logo');
     let gradientAngle = 135;
     
-    setInterval(() => {
+    /* setInterval(() => {
         gradientAngle = (gradientAngle + 0.5) % 360;
         logo.style.background = `linear-gradient(${gradientAngle}deg, #8b0000 0%, #660000 33%, #4a0000 66%, #2a0000 100%)`;
         logo.style.webkitBackgroundClip = 'text';
         logo.style.backgroundClip = 'text';
-    }, 50);
+    }, 50); */
     
     // Эффект для галереи
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -69,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let quoteColor = 0.7;
     let direction = 0.01;
     
-    setInterval(() => {
+    /* setInterval(() => {
         quoteColor += direction;
         if (quoteColor > 0.9 || quoteColor < 0.5) {
             direction = -direction;
         }
         quote.style.color = `rgba(128, 0, 0, ${quoteColor})`;
-    }, 100);
+    }, 100); */
     
     // Функционал модального окна для полноразмерного просмотра
     const modal = document.getElementById('imageModal');
