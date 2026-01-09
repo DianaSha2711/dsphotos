@@ -77,13 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         quote.style.color = `rgba(128, 0, 0, ${quoteColor})`;
     }, 100);
     
-    // Эффект для сказочного элемента
-    const fairyTale = document.querySelector('.fairy-tale');
-    setInterval(() => {
-        fairyTale.style.border = `1px dashed rgba(128, 0, 0, ${0.2 + Math.random() * 0.3})`;
-        fairyTale.style.transform = `translateY(${Math.sin(Date.now()/1000)*3}px)`;
-    }, 100);
-    
     // Функционал модального окна для полноразмерного просмотра
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
