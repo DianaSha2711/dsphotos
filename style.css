@@ -1,0 +1,953 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+body {
+    background-image: url('https://github.com/DianaSha2711/DS-Photos/blob/main/img/photo_2025-10-12_19-16-03.jpg?raw=true');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+
+.social-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75); 
+    padding: 15px 30px;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid rgba(139, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px); 
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(139, 0, 0, 0.8);
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(139, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.75); 
+    font-family: 'Courier New', monospace;
+    font-weight: 300;
+}
+
+.social-icon:hover {
+    background-color: rgba(139, 0, 0, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.15);
+    color: rgba(139, 0, 0, 1);
+}
+
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto 60px;
+    position: relative;
+}
+
+.logo {
+    font-family: 'MedievalSharp', cursive; 
+    font-size: 100px; 
+    font-weight: 500; 
+    
+    
+    background: linear-gradient(135deg, 
+        #8b0000 0%,      /* Темный кроваво-красный */
+        #660000 33%,     /* Очень темный красный */
+        #4a0000 66%,     /* Почти черный красный */
+        #2a0000 100%     /* Очень темный бордовый */
+    );
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 12px; /* Немного уменьшили интервал */
+    position: relative;
+    padding: 15px 30px; /* Уменьшили отступы */
+    text-shadow: 
+        0 1px 2px rgba(139, 0, 0, 0.3),   /* Более тонкие тени */
+        0 2px 4px rgba(102, 0, 0, 0.2),
+        0 3px 6px rgba(74, 0, 0, 0.1);
+    line-height: 0.9; /* Более компактный межстрочный интервал */
+    background-color: rgba(255, 255, 255, 0.5); /* Более прозрачный фон */
+    border-radius: 15px; /* Более округлые углы */
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(139, 0, 0, 0.08); /* Более тонкая внутренняя обводка */
+    backdrop-filter: blur(10px);
+    
+    /* Эффекты для остроты и тонкости */
+    text-rendering: geometricPrecision; /* Более точный рендеринг для тонких линий */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase; /* Заглавные буквы для остроты */
+    transform: perspective(400px) rotateX(3deg); /* Более легкий 3D эффект */
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    transform: perspective(400px) rotateX(3deg) scale(1.01);
+    text-shadow: 
+        0 1px 3px rgba(139, 0, 0, 0.4),
+        0 2px 5px rgba(102, 0, 0, 0.3),
+        0 3px 8px rgba(74, 0, 0, 0.2);
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px; /* Более тонкая линия */
+    background: linear-gradient(to right, 
+        transparent 15%, 
+        #8b0000 30%, 
+        #660000 50%, 
+        #8b0000 70%, 
+        transparent 85%);
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.2);
+}
+
+/* ===== КРОВАВЫЕ ЭФФЕКТЫ ===== */
+
+/* УБРАЛИ стекающие капли - убрали весь блок .drip */
+.blood-drip-top {
+    display: none; /* Скрываем контейнер с анимированными каплями */
+}
+
+/* Кровавые пятна в углах - остаются статичными */
+.blood-corner {
+    position: fixed;
+    width: 250px; /* Немного увеличили размер */
+    height: 250px;
+    background: radial-gradient(circle, 
+        rgba(128, 0, 0, 0.08) 0%, 
+        rgba(128, 0, 0, 0.04) 30%, 
+        transparent 70%); /* Полупрозрачные градиенты */
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6; /* Полупрозрачность */
+}
+
+.corner-tl {
+    top: -100px;
+    left: -100px;
+    transform: rotate(45deg);
+}
+
+.corner-tr {
+    top: -100px;
+    right: -100px;
+    transform: rotate(-45deg);
+}
+
+.corner-bl {
+    bottom: -100px;
+    left: -100px;
+    transform: rotate(-45deg);
+}
+
+.corner-br {
+    bottom: -100px;
+    right: -100px;
+    transform: rotate(45deg);
+}
+
+/* Добавляем статические капли крови по всей странице */
+.blood-stains {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.stain {
+    position: absolute;
+    background: radial-gradient(circle, 
+        rgba(128, 0, 0, 0.15) 0%, 
+        rgba(128, 0, 0, 0.08) 40%, 
+        transparent 70%);
+    border-radius: 50%;
+    opacity: 0.4; /* Полупрозрачность */
+}
+
+/* Распределяем статические капли по странице */
+.stain:nth-child(1) { top: 15%; left: 10%; width: 80px; height: 80px; }
+.stain:nth-child(2) { top: 25%; right: 15%; width: 60px; height: 60px; }
+.stain:nth-child(3) { bottom: 20%; left: 20%; width: 100px; height: 100px; }
+.stain:nth-child(4) { bottom: 30%; right: 25%; width: 70px; height: 70px; }
+.stain:nth-child(5) { top: 40%; left: 30%; width: 90px; height: 90px; }
+.stain:nth-child(6) { top: 60%; right: 40%; width: 50px; height: 50px; }
+.stain:nth-child(7) { bottom: 10%; left: 50%; width: 120px; height: 120px; }
+.stain:nth-child(8) { top: 10%; right: 5%; width: 40px; height: 40px; }
+.stain:nth-child(9) { top: 70%; left: 5%; width: 150px; height: 150px; }
+.stain:nth-child(10) { bottom: 40%; right: 10%; width: 85px; height: 85px; }
+
+/* ===== ОСНОВНАЯ СТРУКТУРА ===== */
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+    position: relative;
+    z-index: 2;
+    min-height: calc(100vh - 200px);
+}
+
+/* ===== БЛОК "О СЕБЕ" ===== */
+#about {
+    padding: 50px;
+    border-radius: 15px;
+    border: 1px solid rgba(128, 0, 0, 0.12); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); 
+    width: 100%;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5); /* Ещё более прозрачный (было 0.65) */
+    backdrop-filter: blur(15px); 
+
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0; 
+    z-index: 0;
+}
+
+#about h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.85); /* Немного прозрачнее */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(128, 0, 0, 0.2); /* Ещё более прозрачная граница */
+    position: relative;
+    letter-spacing: 1px;
+    text-align: center;
+    z-index: 1;
+}
+
+
+#about h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(to right, #800000, transparent); /* Бордовый */
+}
+.direction-item-simple:: before {
+     content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(to right, #800000, transparent); /* Бордовый */
+}
+.about-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.8); /* Немного прозрачнее */
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.45); /* Ещё более прозрачный */
+    border-radius: 10px;
+    border: 1px solid rgba(128, 0, 0, 0.1); /* Ещё более прозрачная граница */
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(8px); /* Усиливаем размытие */
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgba(128, 0, 0, 0.8); /* Бордовый и более прозрачный */
+    margin: 25px 0;
+    padding: 15px;
+    border-left: 2px solid rgba(128, 0, 0, 0.25); /* Бордовые и более прозрачные границы */
+    border-right: 2px solid rgba(128, 0, 0, 0.25); /* Бордовые и более прозрачные границы */
+    background-color: rgba(255, 255, 255, 0.55); /* Ещё более прозрачный */
+    border-radius: 10px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px); /* Усиливаем размытие */
+}
+
+.fairy-tale {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: rgba(255, 255, 255, 0.55); /* Ещё более прозрачный */
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.9);
+    border: 1px dashed rgba(128, 0, 0, 0.25); /* Бордовые и более прозрачная граница */
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px); /* Усиливаем размытие */
+}
+
+/* ===== РАЗДЕЛИТЕЛЬНЫЕ ЛИНИИ ===== */
+.section-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, rgba(128, 0, 0, 0.2), transparent); /* Бордовый и более прозрачный */
+    margin: 40px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.full-line-divider {
+    height: 2px;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.08); /* Ещё более прозрачная */
+    margin: 60px 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    backdrop-filter: blur(3px);
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+#gallery {
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.5); /* Ещё более прозрачный (было 0.65) */
+    border-radius: 15px;
+    border: 1px solid rgba(128, 0, 0, 0.08); /* Ещё более прозрачная граница */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06); /* Ещё более прозрачная тень */
+    width: 100%;
+    margin: 0 auto 50px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(15px); /* Усиливаем размытие */
+}
+
+#gallery h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.85);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(128, 0, 0, 0.12); /* Бордовый и более прозрачная граница */
+    position: relative;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+#gallery h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(to right, #800000, transparent); /* Бордовый */
+}
+
+/* Сетка для фотографий */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 25px;
+    position: relative;
+}
+
+.gallery-item {
+    height: 320px; /* Высота для книжной ориентации */
+    background-color: rgba(255, 255, 255, 0.55); /* Ещё более прозрачный */
+    border: 1px solid rgba(128, 0, 0, 0.08); /* Бордовый и более прозрачная граница */
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Ещё более прозрачная тень */
+    backdrop-filter: blur(8px); /* Усиливаем размытие */
+    cursor: pointer;
+    padding: 15px; /* Поля вокруг фотографии */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Наложение фотографий друг на друга - первый ряд */
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(2),
+.gallery-item:nth-child(3) {
+    transform: rotate(-0.5deg);
+    z-index: 3;
+}
+
+/* Второй ряд */
+.gallery-item:nth-child(4),
+.gallery-item:nth-child(5),
+.gallery-item:nth-child(6) {
+    transform: rotate(0.5deg);
+    z-index: 2;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) rotate(0deg) !important;
+    box-shadow: 0 15px 30px rgba(128, 0, 0, 0.12); /* Бордовый и более прозрачная тень */
+    border-color: rgba(128, 0, 0, 0.2); /* Бордовый и более прозрачная граница */
+    z-index: 10 !important;
+    background-color: rgba(255, 255, 255, 0.75); 
+}
+
+
+.gallery-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    transition: transform 0.5s ease;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); 
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.03);
+}
+
+
+.zoom-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background: linear-gradient(135deg, rgba(128, 0, 0, 0.06) 0%, transparent 50%); 
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    border-radius: 5px;
+}
+
+.gallery-item:hover .zoom-overlay {
+    opacity: 1;
+}
+
+.zoom-icon {
+    color: white;
+    font-size: 2rem;
+    background-color: rgba(128, 0, 0, 0.5); 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .zoom-icon {
+    transform: scale(1);
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(128, 0, 0, 0.2); 
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #a00000; 
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(128, 0, 0, 0.5); /
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.modal-nav:hover {
+    background-color: rgba(128, 0, 0, 0.7); 
+}
+
+.modal-prev {
+    left: -70px;
+}
+
+.modal-next {
+    right: -70px;
+}
+
+.image-counter {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+
+.gallery-item.fallback {
+    background-color: rgba(128, 0, 0, 0.02); 
+}
+
+.gallery-item.fallback::after {
+    content: 'Фото';
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: rgba(128, 0, 0, 0.12); 
+    font-weight: 300;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
+#contacts {
+    padding: 30px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.55); 
+    border-radius: 10px;
+    border: 1px solid rgba(128, 0, 0, 0.08); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); 
+    max-width: 400px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(15px); 
+}
+
+.contact-name {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.contact-phone {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+.contact-social {
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 6px;
+    font-weight: 300;
+}
+
+.contact-social:last-child {
+    margin-bottom: 0;
+}
+
+.contact-divider {
+    height: 1px;
+    width: 80%;
+    background: linear-gradient(to right, transparent, rgba(128, 0, 0, 0.12), transparent); /* Бордовый и более прозрачный */
+    margin: 12px auto;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.5); 
+    border-radius: 10px;
+    backdrop-filter: blur(15px); 
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+        padding: 0 30px 40px;
+    }
+    
+    .logo {
+        font-size: 80px;
+        letter-spacing: 10px;
+        padding: 12px 25px;
+    }
+    
+    #about, #gallery {
+        padding: 40px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .gallery-item {
+        height: 300px;
+    }
+    
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px 30px;
+    }
+    
+    .logo {
+        font-size: 60px;
+        padding: 10px 20px;
+        letter-spacing: 8px;
+        transform: perspective(300px) rotateX(2deg); 
+    }
+    
+    .logo:hover {
+        transform: perspective(300px) rotateX(2deg) scale(1.01);
+    }
+    
+    #about, #gallery {
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .gallery-item {
+        height: 280px;
+        padding: 12px;
+    }
+    
+    .social-header {
+        padding: 12px 20px;
+    }
+    
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+    
+    .about-content {
+        font-size: 1rem;
+    }
+    
+    .quote {
+        font-size: 1.1rem;
+    }
+    
+    .fairy-tale {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+    
+    .contact-info {
+        padding: 15px;
+    }
+    
+    .contact-name {
+        font-size: 0.95rem;
+    }
+    
+    .contact-phone {
+        font-size: 0.9rem;
+    }
+    
+    .contact-social {
+        font-size: 0.8rem;
+    }
+    
+    .modal-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .logo {
+        font-size: 45px;
+        padding: 8px 16px;
+        letter-spacing: 6px;
+        font-weight: 400;
+        transform: none; 
+    }
+    
+    .logo:hover {
+        transform: scale(1.01);
+    }
+    
+    .logo::after {
+        height: 0.5px;
+        bottom: 6px;
+    }
+    
+    #about, #gallery {
+        padding: 25px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .gallery-item {
+        height: 350px;
+        transform: none !important;
+        padding: 10px;
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-8px) !important;
+    }
+    
+    #about h2, #gallery h2 {
+        font-size: 1.6rem;
+    }
+    
+    .social-icons {
+        gap: 12px;
+    }
+    
+    .about-content {
+        font-size: 0.95rem;
+    }
+    
+    .quote {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    
+    .fairy-tale {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+    
+    .contact-info {
+        padding: 12px;
+        max-width: 90%;
+    }
+    
+    .contact-name {
+        font-size: 0.9rem;
+    }
+    
+    .modal-nav {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-prev {
+        left: 5px;
+    }
+    
+    .modal-next {
+        right: 5px;
+    }
+    
+    .close-modal {
+        top: 5px;
+        right: 5px;
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 35px;
+        padding: 6px 12px;
+        letter-spacing: 4px;
+        font-weight: 300;
+    }
+    
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+    
+    .gallery-item {
+        height: 300px;
+    }
+    
+    #about, #gallery {
+        padding: 20px;
+    }
+    
+    .contact-info {
+        padding: 10px;
+    }
+}
